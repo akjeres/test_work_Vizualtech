@@ -15,11 +15,12 @@ function prefix_change (prefix, string) {
 }
 $("#main_nav li").hover(function() {
 	var nav_selector = $(this).prop("className");
+	
 	if (space_cut(nav_selector).length > 14) {
 		nav_selector = "nav_wedding";
 	} nav_selector = space_cut(nav_selector);
 	if (nav_selector != "nav_wedding") {
-		$(".dropdown.nav_wedding").removeClass("open");
+		/*$(".dropdown.nav_wedding").removeClass("open");*/
 		$(".ruler_wedding").css({
 			height: "",
 			width: "",
@@ -29,11 +30,16 @@ $("#main_nav li").hover(function() {
 	}
 	var ruler_selector = prefix_change("ruler", nav_selector);
 	$("." + ruler_selector).css({
-		height: "8px",
+		height: "4px",
 		width: get_wigth(nav_selector),
 		marginLeft: get_marginLeft(nav_selector),
 		backgroundColor: "#1d2759"
 	});
+	
+	if (ruler_selector == "ruler_wedding") {
+		$("table").css("visibility", "visible");
+	} else $("table").css("visibility", "hidden");
+
 }, function() {
 	var nav_selector = $(this).prop("className");
 	$("." + prefix_change("ruler", nav_selector)).css({
@@ -42,7 +48,38 @@ $("#main_nav li").hover(function() {
 		backgroundColor: "",
 		marginLeft: ""
 	});
-	//console.log(nav_selector);
+});
+$("table").hover(function() {
+	$("table").css({
+		visibility: "visible",
+		width: "200px"
+	});
+	var selector = "." + $(this).prop("className");
+} , function() {
+	$("table").css({
+		visibility: "hidden",
+		width: "200px"
+	});
+});
+$("table li").hover(function() {
+	$("table").css({
+		width: "200px"
+	});
+	if ($(this).hasClass("activated_content")) {
+		$("table").css({
+		width: "340px"
+	});
+		$(".submenu_content").css("display", "block");
+	} else {
+		$(".submenu_content").css("display", "none");
+		}
+}, function() {
+	$("table").css({
+		width: "200px"
+	});
+	$(".submenu_content").css({
+		    display: "none"
+		});
 });
 
 function parameter_2_int (string) {
@@ -87,7 +124,7 @@ $(document).ready(function() {
 			position: "absolute",
 			top: $(".main_title").offset().top - 120,
 			left: ($(".main_article").width() - $(".carousel_wrapper").width()
-				+ $(".main_article").offset().left),
+				+ $(".main_article").offset().left + 11),
 			display: "block"
 		});
 	}
@@ -128,9 +165,9 @@ $(window).resize(function() {
 			position: "absolute",
 			top: $(".main_header").offset().top+168,
 			left: ($(".main_article").width() - $(".carousel_wrapper").width()
-				+ $(".main_article").offset().left),
+				+ $(".main_article").offset().left + 11),
 			display: "block"
 		});
 	}
-	
+	$("table").css("visibility", "hidden");
 });
