@@ -236,9 +236,10 @@ table {
 .submenu_list {
     width: 200px;
     background-color: rgb(29,39,90);
-    padding: 18px 26px;
+    padding: 18px 0;
 }
 .submenu_list li {
+    padding: 0 26px;
     margin-bottom: 6px;
 }
 .submenu_list a {
@@ -248,6 +249,16 @@ table {
 .submenu_list a:hover {
     color: rgb(199,169,0);
 }
+.activated_content img {
+    display: none;
+    position: absolute;
+    left: 200px;
+    top: 0px;
+    border-left: 1px solid #fff;
+}
+.activated_content:hover img {
+    display: block;
+}
 .submenu_content {
     display: none;
     width: 140px;
@@ -255,9 +266,6 @@ table {
     text-align: center;
     /*vertical-align: middle;*/
     border-left: 1px solid #fff;
-}
-.submenu_content p {
-    margin: auto 0;
 }
 @media (min-width: 768px) {
     #submenu {

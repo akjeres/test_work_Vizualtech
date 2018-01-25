@@ -61,26 +61,6 @@ $("table").hover(function() {
 		width: "200px"
 	});
 });
-$("table li").hover(function() {
-	$("table").css({
-		width: "200px"
-	});
-	if ($(this).hasClass("activated_content")) {
-		$("table").css({
-		width: "340px"
-	});
-		$(".submenu_content").css("display", "block");
-	} else {
-		$(".submenu_content").css("display", "none");
-		}
-}, function() {
-	$("table").css({
-		width: "200px"
-	});
-	$(".submenu_content").css({
-		    display: "none"
-		});
-});
 
 function parameter_2_int (string) {
 
