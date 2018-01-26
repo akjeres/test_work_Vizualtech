@@ -104,7 +104,7 @@ $(document).ready(function() {
 			position: "absolute",
 			top: $(".main_title").offset().top - 120,
 			left: ($(".main_article").width() - $(".carousel_wrapper").width()
-				+ $(".main_article").offset().left + 11),
+				+ $(".main_article").offset().left),
 			display: "block"
 		});
 	}
@@ -145,7 +145,7 @@ $(window).resize(function() {
 			position: "absolute",
 			top: $(".main_header").offset().top+168,
 			left: ($(".main_article").width() - $(".carousel_wrapper").width()
-				+ $(".main_article").offset().left + 11),
+				+ $(".main_article").offset().left),
 			display: "block"
 		});
 	}
